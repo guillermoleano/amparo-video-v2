@@ -19,14 +19,18 @@ Amparo es el **agente de inteligencia artificial de WhatsApp** que responde, en 
 
 ## Personalidad de marca
 
-**Seria, plana, premium — nunca infantil.** Es una herramienta profesional para un sector regulado (seguros), no una app de consumo divertida. La referencia de estilo es el propio logo: un oso geométrico y plano.
+**Seria, premium — nunca infantil.** Es una herramienta profesional para un sector regulado (seguros), no una app de consumo divertida.
 
 - Postura confiada, expresión serena — no sonrisa de caricatura.
-- Color plano en bloques: sin degradados suaves, sin brillos plásticos, sin sombreado "peluche".
+- **Personaje (el oso Amparo):** renderizado 3D con sombreado suave (luz, sombra, oclusión ambiental) — es el estilo ya establecido en los renders base de `resourcesAmparo/` y se mantiene como oficial. No aplanar el personaje en producciones nuevas; igualar la técnica de sombreado ya existente para que todos los renders del oso se vean consistentes entre sí.
+- **Interfaz (chat, botones, cards, tipografía on-screen):** color plano en bloques, sin degradados ni brillos — la regla de planitud aplica a la UI, no al personaje. No mezclar ambos lenguajes dentro del mismo elemento (ej. un botón no lleva sombreado 3D aunque esté junto al oso).
 - Geometría limpia y curvas firmes; sin proporciones de bebé (cabeza gigante, cuerpo diminuto).
 - Composición centrada, fondo limpio cuando aparece el personaje.
+- Nunca incluir logos de marcas de terceros reconocibles (dispositivos, apps, etc.) dentro de un asset del personaje — usar props/dispositivos genéricos.
 
 Este mismo criterio aplica al tono de cualquier pieza: confianza y seriedad profesional, sin humor forzado ni infantilización.
+
+> **Nota (2026-07-18):** la auditoría de `resourcesAmparo/` (ver `resourcesAmparo/briefs/00-auditoria.md`) encontró que los 5 renders base del oso usan sombreado 3D, no color plano puro como decía la versión anterior de esta sección. Se decidió mantener ese estilo como oficial —es material ya validado y evita retrabajo— en vez de forzar un rediseño completo. La auditoría también encontró, y quedan pendientes de corregir en la próxima regeneración de esos assets puntuales: un logo de Apple visible en `bear-tablet-chat.png` (cambiar a dispositivo genérico), un prop con rojo/verde saturado suelto en `bear-tools.png` (viola la regla de "el oro es el único acento saturado"), y un typo de copy en `bear-siempre-aqui-testimonial.png` ("¡Siempre aqui!" → "¡Siempre aquí!").
 
 ---
 
@@ -66,6 +70,7 @@ Dos colores, dos roles. **Nunca se invierten.**
 2. El oro siempre lleva texto **tinta** encima. Nunca blanco sobre oro.
 3. Nada de rojos/verdes/azules sueltos fuera de los semánticos — el único acento saturado es el oro.
 4. Sin bordes duros: las superficies se diferencian por relleno/contraste, no por línea (la única excepción es el hairline para separaciones muy discretas).
+5. El sombreado 3D del personaje y la planitud de la UI son dos lenguajes que no se mezclan: el oso lleva luz/sombra/oclusión ambiental (ver nota más abajo), los elementos de interfaz van en color plano puro.
 
 ---
 
